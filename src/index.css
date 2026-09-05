@@ -1,0 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700;800;900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+* { box-sizing: border-box; }
+html { background: #0c0c0c; scroll-behavior: smooth; }
+body { margin: 0; background: #0c0c0c; color: #d7e2ea; font-family: "Kanit", sans-serif; overflow-x: hidden; }
+button { font: inherit; }
+::selection { background: #d7e2ea; color: #0c0c0c; }
