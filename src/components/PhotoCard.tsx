@@ -1,9 +1,65 @@
-import { Expand } from 'lucide-react'
 import { motion } from 'framer-motion'
 import type { Project } from '../data/projects'
-import { usePointerParallax } from '../hooks/usePointerParallax'
 
-export function PhotoCard({ project, onOpen }: { project: Project; onOpen: (p: Project) => void }) {
-  const parallax = usePointerParallax(4)
-  return <motion.button onClick={() => onOpen(project)} onPointerMove={parallax.onPointerMove} onPointerLeave={parallax.onPointerLeave} className="group relative block w-full overflow-hidden rounded-[1.5rem] bg-[#171717] text-left" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-8%' }} transition={{ duration: .55, ease: [0.22, 1, 0.36, 1] }} whileHover={{ y: -6, scale: 1.015 }}><motion.img style={parallax.style} src={project.src} alt={project.title} loading="lazy" className="h-full w-full scale-[1.02] object-cover transition duration-500 group-hover:scale-[1.07]" /><span className="absolute right-4 top-4 grid h-8 w-8 place-items-center rounded-full bg-black/35 opacity-0 backdrop-blur transition duration-500 group-hover:opacity-100"><Expand size={14}/></span></motion.button>
+function getAspectRatio(project: Project) {
+  switch (project.aspectRatio) {
+    case 'portrait':
+      return '9 / 16'
+
+    case 'square':
+      return '1 / 1'
+
+    case 'wide':
+      return '21 / 9'
+
+    case 'landscape':
+    default:
+      return '16 / 9'
+  }
+}
+
+export function PhotoCard({
+  project,
+  onOpen,
+}: {
+  project: Project
+  onOpen: (project: Project) => void
+}) {
+  return (
+    <motion.button
+      layout
+      onClick={() => onOpen(project)}
+      style={{
+        aspectRatio: getAspectRatio(project),
+      }}
+      className="group relative block h-[58svh] shrink-0 overflow-hidden rounded-[2rem] bg-[#171717] text-left outline-none transition-[opacity,filter] duration-500 focus:ring-1 focus:ring-[#d7e2ea] hover:!opacity-100 hover:!blur-0"
+      whileHover={{
+        y: -8,
+        scale: 1.035,
+        zIndex: 10,
+      }}
+      transition={{
+        duration: 0.5,
+        ease: [0.22, 1, 0.36, 1],
+      }}
+    >
+      <img
+        src={project.src}
+        alt={project.title}
+        className="h-full w-full object-cover transition-[filter,transform] duration-700 group-hover:scale-[1.06] group-hover:brightness-110"
+      />
+
+      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80" />
+
+      <div className="absolute bottom-5 left-5 right-5 flex items-center justify-between">
+        <span className="text-xs uppercase tracking-[.16em]">
+          {project.title}
+        </span>
+
+        <span className="grid h-9 w-9 place-items-center rounded-full bg-[#d7e2ea] text-[#0c0c0c] opacity-0 transition group-hover:opacity-100">
+          +
+        </span>
+      </div>
+    </motion.button>
+  )
 }
