@@ -91,7 +91,7 @@ export const projects: Project[] = [
     title: 'ADS 1',
     category: 'ads',
     type: 'video',
-    src: '/media/video/Ads/ads1.MOV',
+    src: '/media/video/Ads/ads1.mp4',
     aspectRatio: 'landscape',
   },
 
