@@ -1,7 +1,7 @@
 import { Film, Image as ImageIcon, Plus } from 'lucide-react'
 import type { Category, MediaType } from '../data/projects'
 
-const folder: Record<Category, string> = { films: 'Video/Films', ads: 'Video/Ads', live: 'Video/Live', creative: 'Video/Creative', characters: 'Video/Characters', photo: 'Images/Photo' }
+const folder: Record<Category, string> = { films: 'Video/Films', ads: 'Video/Ads', design: 'Video/Design', creative: 'Video/Creative', characters: 'Video/Characters', photo: 'Images/Photo' }
 
 export function MediaPlaceholder({ category, type = 'video', featured = false }: { category: Category; type?: MediaType; featured?: boolean }) {
   const Icon = type === 'photo' ? ImageIcon : Film
