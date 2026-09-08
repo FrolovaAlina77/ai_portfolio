@@ -65,7 +65,7 @@ export function VideoCard({
         muted
         loop
         playsInline
-        preload="metadata"
+        preload="none"
         className="h-full w-full scale-[1.03] object-cover transition-[filter,transform] duration-500 group-hover:scale-[1.1] group-hover:brightness-110"
       />
 
