@@ -1,4 +1,4 @@
-export type Category = 'films' | 'ads' | 'design' | 'creative' | 'characters' | 'photo'
+﻿export type Category = 'films' | 'ads' | 'design' | 'creative' | 'characters' | 'photo'
 export type MediaType = 'video' | 'photo'
 
 export type Project = {
@@ -9,6 +9,12 @@ export type Project = {
   src: string
   thumbnail?: string
   aspectRatio: 'landscape' | 'portrait' | 'square' | 'wide'
+}
+
+const R2 = 'https://pub-7654bc85f1f14b22a5a4452eaada764d.r2.dev'
+
+function media(path: string) {
+  return `${R2}/${path.replace(/^\/media\/video\//, '').replace(/\.(MOV|MP4)$/i, '.mp4')}`
 }
 
 export const categories: { id: Category; label: string; title: string }[] = [
@@ -28,7 +34,7 @@ export const projects: Project[] = [
     title: '01 MULT',
     category: 'creative',
     type: 'video',
-    src: '/media/video/Creative/test.mp4',
+    src: media('/media/video/Creative/test.mp4'),
     aspectRatio: 'landscape',
   },
 
@@ -37,7 +43,7 @@ export const projects: Project[] = [
     title: 'HERO',
     category: 'creative',
     type: 'video',
-    src: '/media/video/Featured/hero.MOV',
+    src: media('/media/video/Featured/hero.MOV'),
     aspectRatio: 'landscape',
   },
 
@@ -46,7 +52,7 @@ export const projects: Project[] = [
     title: 'FILM 1',
     category: 'films',
     type: 'video',
-    src: '/media/video/Films/film1.mp4',
+    src: media('/media/video/Films/film1.mp4'),
     aspectRatio: 'portrait',
   },
 
@@ -55,7 +61,7 @@ export const projects: Project[] = [
     title: 'FILM 2',
     category: 'films',
     type: 'video',
-    src: '/media/video/Films/film2.mp4',
+    src: media('/media/video/Films/film2.mp4'),
     aspectRatio: 'portrait',
   },
 
@@ -64,7 +70,7 @@ export const projects: Project[] = [
     title: 'FILM 3',
     category: 'films',
     type: 'video',
-    src: '/media/video/Films/film3.mp4',
+    src: media('/media/video/Films/film3.mp4'),
     aspectRatio: 'portrait',
   },
 
@@ -73,7 +79,7 @@ export const projects: Project[] = [
     title: 'FILM 4',
     category: 'films',
     type: 'video',
-    src: '/media/video/Films/film4.mp4',
+    src: media('/media/video/Films/film4.mp4'),
     aspectRatio: 'portrait',
   },
 
@@ -82,7 +88,7 @@ export const projects: Project[] = [
     title: 'FILM 5',
     category: 'films',
     type: 'video',
-    src: '/media/video/Films/film5.mp4',
+    src: media('/media/video/Films/film5.mp4'),
     aspectRatio: 'portrait',
   },
 
@@ -100,7 +106,7 @@ export const projects: Project[] = [
     title: 'ADS 2',
     category: 'ads',
     type: 'video',
-    src: '/media/video/Ads/ads2.MOV',
+    src: media('/media/video/Ads/ads2.MOV'),
     aspectRatio: 'portrait',
   },
 
@@ -109,7 +115,7 @@ export const projects: Project[] = [
     title: 'ADS 8',
     category: 'ads',
     type: 'video',
-    src: '/media/video/Ads/ads8.mp4',
+    src: media('/media/video/Ads/ads8.mp4'),
     aspectRatio: 'landscape',
   },
 
@@ -118,7 +124,7 @@ export const projects: Project[] = [
     title: 'ADS 3',
     category: 'ads',
     type: 'video',
-    src: '/media/video/Ads/ads3.MOV',
+    src: media('/media/video/Ads/ads3.MOV'),
     aspectRatio: 'portrait',
   },
 
@@ -127,7 +133,7 @@ export const projects: Project[] = [
     title: 'ADS 19',
     category: 'ads',
     type: 'video',
-    src: '/media/video/Ads/ads19.MOV',
+    src: media('/media/video/Ads/ads19.MOV'),
     aspectRatio: 'landscape',
   },
 
@@ -136,7 +142,7 @@ export const projects: Project[] = [
     title: 'ADS 4',
     category: 'ads',
     type: 'video',
-    src: '/media/video/Ads/ads4.mp4',
+    src: media('/media/video/Ads/ads4.mp4'),
     aspectRatio: 'portrait',
   },
 
@@ -145,7 +151,7 @@ export const projects: Project[] = [
     title: 'ADS 5',
     category: 'ads',
     type: 'video',
-    src: '/media/video/Ads/ads5.mp4',
+    src: media('/media/video/Ads/ads5.mp4'),
     aspectRatio: 'portrait',
   },
 
@@ -154,7 +160,7 @@ export const projects: Project[] = [
     title: 'ADS 7',
     category: 'ads',
     type: 'video',
-    src: '/media/video/Ads/ads7.mp4',
+    src: media('/media/video/Ads/ads7.mp4'),
     aspectRatio: 'portrait',
   },
 
@@ -163,7 +169,7 @@ export const projects: Project[] = [
     title: 'DES 6',
     category: 'design',
     type: 'video',
-    src: '/media/video/Design/des6.MOV',
+    src: media('/media/video/Design/des6.MOV'),
     aspectRatio: 'landscape',
   },
 
@@ -172,7 +178,7 @@ export const projects: Project[] = [
     title: 'DES 1',
     category: 'design',
     type: 'video',
-    src: '/media/video/Design/des1.mp4',
+    src: media('/media/video/Design/des1.mp4'),
     aspectRatio: 'portrait',
   },
   
@@ -181,7 +187,7 @@ export const projects: Project[] = [
     title: 'DES 2',
     category: 'design',
     type: 'video',
-    src: '/media/video/Design/des2.mp4',
+    src: media('/media/video/Design/des2.mp4'),
     aspectRatio: 'portrait',
   },
 
@@ -190,7 +196,7 @@ export const projects: Project[] = [
     title: 'DES 3',
     category: 'design',
     type: 'video',
-    src: '/media/video/Design/des3.mp4',
+    src: media('/media/video/Design/des3.mp4'),
     aspectRatio: 'portrait',
   },
 
@@ -199,7 +205,7 @@ export const projects: Project[] = [
     title: 'DES 4',
     category: 'design',
     type: 'video',
-    src: '/media/video/Design/des4.mp4',
+    src: media('/media/video/Design/des4.mp4'),
     aspectRatio: 'portrait',
   },
 
@@ -208,7 +214,7 @@ export const projects: Project[] = [
     title: 'DES 5',
     category: 'design',
     type: 'video',
-    src: '/media/video/Design/des5.mp4',
+    src: media('/media/video/Design/des5.mp4'),
     aspectRatio: 'portrait',
   },
 
@@ -217,7 +223,7 @@ export const projects: Project[] = [
     title: 'DES 7',
     category: 'design',
     type: 'video',
-    src: '/media/video/Design/des7.MOV',
+    src: media('/media/video/Design/des7.MOV'),
     aspectRatio: 'portrait',
   },
 
@@ -227,7 +233,7 @@ export const projects: Project[] = [
     title: 'ADS 9',
     category: 'ads',
     type: 'video',
-    src: '/media/video/Ads/ads9.MP4',
+    src: media('/media/video/Ads/ads9.MP4'),
     aspectRatio: 'portrait',
   },
 
@@ -236,7 +242,7 @@ export const projects: Project[] = [
     title: 'ADS 10',
     category: 'ads',
     type: 'video',
-    src: '/media/video/Ads/ads10.MOV',
+    src: media('/media/video/Ads/ads10.MOV'),
     aspectRatio: 'portrait',
   },
 
@@ -245,7 +251,7 @@ export const projects: Project[] = [
     title: 'ADS 11',
     category: 'ads',
     type: 'video',
-    src: '/media/video/Ads/ads11.MP4',
+    src: media('/media/video/Ads/ads11.MP4'),
     aspectRatio: 'portrait',
   },
 
@@ -254,7 +260,7 @@ export const projects: Project[] = [
     title: 'ADS 12',
     category: 'ads',
     type: 'video',
-    src: '/media/video/Ads/ads12.MOV',
+    src: media('/media/video/Ads/ads12.MOV'),
     aspectRatio: 'portrait',
   },
 
@@ -263,7 +269,7 @@ export const projects: Project[] = [
     title: 'ADS 13',
     category: 'ads',
     type: 'video',
-    src: '/media/video/Ads/ads13.MOV',
+    src: media('/media/video/Ads/ads13.MOV'),
     aspectRatio: 'portrait',
   },
 
@@ -272,7 +278,7 @@ export const projects: Project[] = [
     title: 'ADS 14',
     category: 'ads',
     type: 'video',
-    src: '/media/video/Ads/ads14.MOV',
+    src: media('/media/video/Ads/ads14.MOV'),
     aspectRatio: 'portrait',
   },
 
@@ -281,7 +287,7 @@ export const projects: Project[] = [
     title: 'ADS 15',
     category: 'ads',
     type: 'video',
-    src: '/media/video/Ads/ads15.MOV',
+    src: media('/media/video/Ads/ads15.MOV'),
     aspectRatio: 'portrait',
   },
 
@@ -290,7 +296,7 @@ export const projects: Project[] = [
     title: 'ADS 16',
     category: 'ads',
     type: 'video',
-    src: '/media/video/Ads/ads16.MP4',
+    src: media('/media/video/Ads/ads16.MP4'),
     aspectRatio: 'portrait',
   },
 
@@ -299,7 +305,7 @@ export const projects: Project[] = [
     title: 'ADS 17',
     category: 'ads',
     type: 'video',
-    src: '/media/video/Ads/ads17.MP4',
+    src: media('/media/video/Ads/ads17.MP4'),
     aspectRatio: 'portrait',
   },
 
@@ -308,7 +314,7 @@ export const projects: Project[] = [
     title: 'ADS 18',
     category: 'ads',
     type: 'video',
-    src: '/media/video/Ads/ads18.MP4',
+    src: media('/media/video/Ads/ads18.MP4'),
     aspectRatio: 'portrait',
   },
 
@@ -317,7 +323,7 @@ export const projects: Project[] = [
     title: 'CREATIVE 2',
     category: 'creative',
     type: 'video',
-    src: '/media/video/Creative/create1.MOV',
+    src: media('/media/video/Creative/create1.MOV'),
     aspectRatio: 'portrait',
   },
 
@@ -326,7 +332,7 @@ export const projects: Project[] = [
     title: 'CREATIVE 4',
     category: 'creative',
     type: 'video',
-    src: '/media/video/Creative/create3.MP4',
+    src: media('/media/video/Creative/create3.MP4'),
     aspectRatio: 'landscape',
   },
 
@@ -335,7 +341,7 @@ export const projects: Project[] = [
     title: 'CREATIVE 3',
     category: 'creative',
     type: 'video',
-    src: '/media/video/Creative/create2.MOV',
+    src: media('/media/video/Creative/create2.MOV'),
     aspectRatio: 'portrait',
   },
 
@@ -344,7 +350,7 @@ export const projects: Project[] = [
     title: 'CREATIVE 5',
     category: 'creative',
     type: 'video',
-    src: '/media/video/Creative/create4.MP4',
+    src: media('/media/video/Creative/create4.MP4'),
     aspectRatio: 'landscape',
   },
 
@@ -353,7 +359,7 @@ export const projects: Project[] = [
     title: 'CREATIVE 6',
     category: 'creative',
     type: 'video',
-    src: '/media/video/Creative/create5.MP4',
+    src: media('/media/video/Creative/create5.MP4'),
     aspectRatio: 'landscape',
   },
 
@@ -362,7 +368,7 @@ export const projects: Project[] = [
     title: 'CREATIVE 7',
     category: 'creative',
     type: 'video',
-    src: '/media/video/Creative/create6.MP4',
+    src: media('/media/video/Creative/create6.MP4'),
     aspectRatio: 'landscape',
   },
 
@@ -371,7 +377,7 @@ export const projects: Project[] = [
     title: 'CREATIVE 8',
     category: 'creative',
     type: 'video',
-    src: '/media/video/Creative/create7.MP4',
+    src: media('/media/video/Creative/create7.MP4'),
     aspectRatio: 'landscape',
   },
 
@@ -380,7 +386,7 @@ export const projects: Project[] = [
     title: 'CREATIVE 9',
     category: 'creative',
     type: 'video',
-    src: '/media/video/Creative/create8.MP4',
+    src: media('/media/video/Creative/create8.MP4'),
     aspectRatio: 'landscape',
   },
 
@@ -389,7 +395,7 @@ export const projects: Project[] = [
     title: 'CREATIVE 10',
     category: 'creative',
     type: 'video',
-    src: '/media/video/Creative/create9.MOV',
+    src: media('/media/video/Creative/create9.MOV'),
     aspectRatio: 'landscape',
   },
   
@@ -398,7 +404,7 @@ export const projects: Project[] = [
     title: 'CREATIVE 11',
     category: 'creative',
     type: 'video',
-    src: '/media/video/Creative/create10.MOV',
+    src: media('/media/video/Creative/create10.MOV'),
     aspectRatio: 'landscape',
   },
 
@@ -407,7 +413,7 @@ export const projects: Project[] = [
     title: 'CREATIVE 12',
     category: 'creative',
     type: 'video',
-    src: '/media/video/Creative/create11.MOV',
+    src: media('/media/video/Creative/create11.MOV'),
     aspectRatio: 'portrait',
   },
 
@@ -416,7 +422,7 @@ export const projects: Project[] = [
     title: 'CREATIVE 13',
     category: 'creative',
     type: 'video',
-    src: '/media/video/Creative/create12.MOV',
+    src: media('/media/video/Creative/create12.MOV'),
     aspectRatio: 'portrait',
   },
 
@@ -425,7 +431,7 @@ export const projects: Project[] = [
     title: 'CREATIVE 14',
     category: 'creative',
     type: 'video',
-    src: '/media/video/Creative/create13.MOV',
+    src: media('/media/video/Creative/create13.MOV'),
     aspectRatio: 'portrait',
   },
 
@@ -434,7 +440,7 @@ export const projects: Project[] = [
     title: 'CHARACTERS 1',
     category: 'characters',
     type: 'photo',
-    src: '/media/video/Characters/photo01.jpg',
+    src: media('/media/video/Characters/photo01.jpg'),
     aspectRatio: 'landscape',
   },
 
@@ -443,7 +449,7 @@ export const projects: Project[] = [
     title: 'CHARACTERS 2',
     category: 'characters',
     type: 'photo',
-    src: '/media/video/Characters/photo02.jpg',
+    src: media('/media/video/Characters/photo02.jpg'),
     aspectRatio: 'portrait',
   },
 
@@ -452,7 +458,7 @@ export const projects: Project[] = [
     title: 'CHARACTERS 3',
     category: 'characters',
     type: 'photo',
-    src: '/media/video/Characters/photo03.jpg',
+    src: media('/media/video/Characters/photo03.jpg'),
     aspectRatio: 'portrait',
   },
 
@@ -461,7 +467,7 @@ export const projects: Project[] = [
     title: 'CHARACTERS 4',
     category: 'characters',
     type: 'photo',
-    src: '/media/video/Characters/photo04.jpg',
+    src: media('/media/video/Characters/photo04.jpg'),
     aspectRatio: 'portrait',
   },
 
@@ -470,7 +476,7 @@ export const projects: Project[] = [
     title: 'CHARACTERS 5',
     category: 'characters',
     type: 'photo',
-    src: '/media/video/Characters/photo05.jpg',
+    src: media('/media/video/Characters/photo05.jpg'),
     aspectRatio: 'landscape',
   },
 
@@ -479,7 +485,7 @@ export const projects: Project[] = [
     title: 'CHARACTERS 6',
     category: 'characters',
     type: 'photo',
-    src: '/media/video/Characters/photo06.jpg',
+    src: media('/media/video/Characters/photo06.jpg'),
     aspectRatio: 'landscape',
   },
 
@@ -488,7 +494,7 @@ export const projects: Project[] = [
     title: 'CHARACTERS 7',
     category: 'characters',
     type: 'photo',
-    src: '/media/video/Characters/photo07.jpg',
+    src: media('/media/video/Characters/photo07.jpg'),
     aspectRatio: 'landscape',
   },
 
@@ -497,7 +503,7 @@ export const projects: Project[] = [
     title: 'CHARACTERS 8',
     category: 'characters',
     type: 'photo',
-    src: '/media/video/Characters/photo08.jpg',
+    src: media('/media/video/Characters/photo08.jpg'),
     aspectRatio: 'portrait',
   },
 
@@ -506,7 +512,7 @@ export const projects: Project[] = [
     title: 'CHARACTERS 9',
     category: 'characters',
     type: 'photo',
-    src: '/media/video/Characters/photo09.jpg',
+    src: media('/media/video/Characters/photo09.jpg'),
     aspectRatio: 'portrait',
   },
 
@@ -515,7 +521,7 @@ export const projects: Project[] = [
     title: 'AI PHOTO 1',
     category: 'photo',
     type: 'photo',
-    src: '/media/video/AI Photo/aiphoto1.jpg',
+    src: media('/media/video/AI Photo/aiphoto1.jpg'),
     aspectRatio: 'portrait',
   },
   
@@ -524,7 +530,7 @@ export const projects: Project[] = [
     title: 'AI PHOTO 2',
     category: 'photo',
     type: 'photo',
-    src: '/media/video/AI Photo/aiphoto2.png',
+    src: media('/media/video/AI Photo/aiphoto2.png'),
     aspectRatio: 'portrait',
   },
 
@@ -533,7 +539,7 @@ export const projects: Project[] = [
     title: 'AI PHOTO 3',
     category: 'photo',
     type: 'photo',
-    src: '/media/video/AI Photo/aiphoto3.png',
+    src: media('/media/video/AI Photo/aiphoto3.png'),
     aspectRatio: 'portrait',
   },
 
@@ -542,7 +548,7 @@ export const projects: Project[] = [
     title: 'AI PHOTO 4',
     category: 'photo',
     type: 'photo',
-    src: '/media/video/AI Photo/aiphoto4.png',
+    src: media('/media/video/AI Photo/aiphoto4.png'),
     aspectRatio: 'portrait',
   },
   
