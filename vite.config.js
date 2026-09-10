@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
-import { cpSync, createReadStream, existsSync, statSync } from 'node:fs';
+import { cpSync, createReadStream, existsSync, statSync, rmSync, } from 'node:fs';
 import { resolve, normalize } from 'node:path';
 const mediaFolders = ['Video', 'Images'];
 const root = process.cwd();
@@ -14,21 +14,35 @@ function localMedia() {
                 if (!folder)
                     return next();
                 const file = normalize(resolve(root, `.${url}`));
-                if (!file.startsWith(resolve(root, folder)) || !existsSync(file) || !statSync(file).isFile())
+                if (!file.startsWith(resolve(root, folder)) ||
+                    !existsSync(file) ||
+                    !statSync(file).isFile()) {
                     return next();
+                }
                 createReadStream(file).pipe(res);
             });
         },
         closeBundle() {
             for (const folder of mediaFolders) {
                 const source = resolve(root, folder);
-                if (existsSync(source))
-                    cpSync(source, resolve(root, 'dist', folder), { recursive: true });
+                if (existsSync(source)) {
+                    cpSync(source, resolve(root, 'dist', folder), {
+                        recursive: true,
+                    });
+                }
             }
+            // Медиа из public/media не нужны Cloudflare Pages —
+            // они загружаются из Cloudflare R2.
+            rmSync(resolve(root, 'dist', 'media'), {
+                recursive: true,
+                force: true,
+            });
         },
     };
 }
 export default defineConfig({
     plugins: [react(), localMedia()],
-    server: { open: true },
+    server: {
+        open: true,
+    },
 });
