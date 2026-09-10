@@ -14,7 +14,7 @@ export type Project = {
 const R2 = 'https://pub-7654bc85f1f14b22a5a4452eaada764d.r2.dev'
 
 function media(path: string) {
-  return `${R2}/${path.replace(/^\/media\/video\//, '').replace(/\.(MOV|MP4)$/i, '.mp4')}`
+  return `${R2}/${path.replace(/^\/media\/video\//, '')}`
 }
 
 export const categories: { id: Category; label: string; title: string }[] = [
